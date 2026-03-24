@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Umar Al Faris - 5054241015</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e0e0e0;
+            margin: 0;
+        }
+        canvas {
+            background-color: white;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="biohazard" width="500" height="500"></canvas>
+
+    <script>
+        const canvas = document.getElementById('biohazard');
+        const graphics = canvas.getContext('2d');
+
+        graphics.translate(250, 250);
+
+        function draw3circle() 
+        {
+            // Lingkaran Hitam
+            graphics.beginPath();
+            graphics.arc(70, 0, 65, 0, Math.PI * 2);
+            graphics.fillStyle = 'black';
+            graphics.fill();
+            
+            // Lingkaran Kuning agar jadi bulan sabit
+            graphics.beginPath();
+            graphics.arc(81, 0, 55, 0, Math.PI * 2);
+            graphics.fillStyle = '#FFD700';
+            graphics.fill();
+        }
+
+        function draw3circleBorder() 
+        {
+            // Batas Kuning di dalam sabit
+            graphics.beginPath();
+            graphics.arc(80, 0, 50, 0, Math.PI * 2);
+            graphics.strokeStyle = '#FFD700';
+            graphics.lineWidth = 9;
+            graphics.stroke();
+        }
+
+        function drawGarisKuning() 
+        {
+            // Garis Kecil dari lingkaran di tengah
+            graphics.beginPath();
+            graphics.moveTo(14, 0);
+            graphics.lineTo(45, 0);
+
+            graphics.strokeStyle = '#FFD700';
+            graphics.lineWidth = 8;
+            graphics.stroke();  
+        }
+
+        // Segitiga Besar
+        const R = 230;
+        graphics.beginPath();
+        graphics.moveTo(0, -R);
+        graphics.lineTo(R * Math.cos(30 * Math.PI/180), R * Math.sin(30 * Math.PI/180));
+        graphics.lineTo(-R * Math.cos(30 * Math.PI/180), R * Math.sin(30 * Math.PI/180));
+        graphics.closePath();
+
+        graphics.fillStyle = '#FFD700';
+        graphics.fill();
+        graphics.lineWidth = 15;
+        graphics.strokeStyle = 'black';
+        graphics.stroke();
+
+        // 3 Bulan Sabit di dalam segitiga
+        // Kiri Bawah
+        graphics.save();
+        graphics.rotate(150 * Math.PI / 180);
+        draw3circle();
+        graphics.restore();
+
+        // Atas
+        graphics.save();
+        graphics.rotate(-90 * Math.PI / 180);
+        draw3circle();
+        graphics.restore();
+
+        // Kanan Bawah
+        graphics.save();
+        graphics.scale(-1, 1);
+        graphics.rotate(150 * Math.PI / 180);
+        draw3circle();
+        graphics.restore();
+
+        // Lingkaran Hitam / Cincin Hitam di tengah
+        graphics.beginPath();
+        graphics.arc(0, 0, 60, 0, Math.PI * 2);
+        graphics.strokeStyle = 'black';
+        graphics.lineWidth = 14;
+        graphics.stroke();
+
+        // Batas Kuning di dalam sabit
+        // Kiri Bawah
+        graphics.save();
+        graphics.rotate(150 * Math.PI / 180);
+        draw3circleBorder();
+        graphics.restore();
+
+        // Atas
+        graphics.save();
+        graphics.rotate(-90 * Math.PI / 180);
+        draw3circleBorder();
+        graphics.restore();
+
+        // Kanan Bawah
+        graphics.save();
+        graphics.scale(-1, 1);
+        graphics.rotate(150 * Math.PI / 180);
+        draw3circleBorder();
+        graphics.restore();
+
+        // Lingkaran Kucing di tengah
+        graphics.beginPath();
+        graphics.arc(0, 0, 18, 0, Math.PI * 2);
+        graphics.fillStyle = '#FFD700';
+        graphics.fill();
+
+        // Lingkaran Hitam Kecil di tengah
+        graphics.beginPath();
+        graphics.arc(0, 0, 12, 0, Math.PI * 2);
+        graphics.fillStyle = 'black';
+        graphics.fill();
+
+        // Garis Kuning di dalam segitiga
+        // Kiri Bawah
+        graphics.save();
+        graphics.rotate(30 * Math.PI / 180);
+        drawGarisKuning();
+        graphics.restore();
+
+        // Atas
+        graphics.save();
+        graphics.rotate(270 * Math.PI / 180);
+        drawGarisKuning();
+        graphics.restore();
+
+        // Kanan Bawah
+        graphics.save();
+        graphics.scale(-1, 1);
+        graphics.rotate(30 * Math.PI / 180);
+        drawGarisKuning();
+        graphics.restore();
+
+        // Iseng Nulis Biohazard
+        graphics.font = "bold 30px Arial"; 
+        graphics.fillStyle = "black"; 
+        graphics.textAlign = "center"; 
+        graphics.fillText("BIOHAZARD", 0, 150);
+        
+    </script>
+</body>
+</html>
