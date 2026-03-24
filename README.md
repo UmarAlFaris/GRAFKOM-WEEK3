@@ -1,1 +1,1 @@
-UmarAlFaris.gitub.io/GRAFKOM-WEEK3
+UmarAlFaris.github.io/GRAFKOM-WEEK3
